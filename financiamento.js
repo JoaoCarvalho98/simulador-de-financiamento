@@ -1,6 +1,6 @@
-import {Parcela} from './parcelas'
+import {Parcela} from './parcelas.js'
 
-class Financiamento{
+export class Financiamento{
     #taxaJuros;
     #prazo;
     #parcelas = [];
@@ -15,13 +15,13 @@ class Financiamento{
         return valor = (taxaJuros / 100)
     } 
 
-    calParcelasMensais(){
+    calcParcelasMensais(){
         let saldo = this.#parcelas[this.#parcelas.length-1].getSaldo();
         let prazo = this.#prazo - (this.#parcelas.length-1)
         let amortizacao = saldo / prazo;
         for(let i = 0; i< prazo; i++){
             const numero = this.#parcelas.length;
-            const juros = Financiamento.calcJuros(saldo.#taxaJuros);
+            const juros = Financiamento.calcJuros(saldo,this.#taxaJuros);
             const valor = juros + amortizacao;
             saldo -= amortizacao;
             if (saldo < 0 ){saldo = 0;}                
@@ -35,7 +35,7 @@ class Financiamento{
                 const linha = corpoTabela.insertRow(-1);
                 for(const dado of parcela.getDadosFormatados()){
                     const celula = linha.insertCell(-1);
-                    celula.textContente = dados;
+                    celula.textContent = dado;
                 }
             }
         }
