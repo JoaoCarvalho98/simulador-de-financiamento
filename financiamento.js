@@ -24,13 +24,20 @@ class Financiamento{
             const juros = Financiamento.calcJuros(saldo.#taxaJuros);
             const valor = juros + amortizacao;
             saldo -= amortizacao;
-            if (saldo < 0 ){
-                saldo = 0;
-            }
-            this.#parcelas.push(new Parcela(numero,valor,juros,amortizacao,saldo){
-
-            })
+            if (saldo < 0 ){saldo = 0;}                
+            this.#parcelas.push(new Parcela(numero,valor,juros,amortizacao,saldo));
+            }            
         }
 
+        exibeParcelas(){
+            const parcelas = this.#parcelas.slice(1);
+            for(const parcela of parcelas){
+                const linha = corpoTabela.insertRow(-1);
+                for(const dado of parcela.getDadosFormatados()){
+                    const celula = linha.insertCell(-1);
+                    celula.textContente = dados;
+                }
+            }
+        }
     }
-}
+   

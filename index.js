@@ -1,5 +1,7 @@
 const comCarencia = document.querySelector('#comCarencia');
 const listaSuspensa = document.querySelector('#listaSuspensa');
+const corpoTabela = document.querySelector('#copoTabela')
+const btn = document.querySelector('#botaoCalcular')
 
 
 comCarencia.addEventListener('change', function () {
@@ -9,3 +11,4 @@ comCarencia.addEventListener('change', function () {
         listaSuspensa.setAttribute('hidden', 'hidden');
     }
 });
+
