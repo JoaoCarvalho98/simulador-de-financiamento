@@ -7,12 +7,12 @@ export class Financiamento{
     constructor(valor,entrada,taxaJuros,prazo){
         this.#taxaJuros = taxaJuros;
         this.#prazo = prazo;
-        this.#parcelas.push(new Parcela(0,0,0,0,valor - entrada))
+        this.#parcelas.push(new Parcela(0,0,0,0,valor - entrada));
 
     }
     
     static calcJuros (valor, taxaJuros){
-        return valor = (taxaJuros / 100)
+        return valor * (taxaJuros / 100)
     } 
 
     calcParcelasMensais(){
